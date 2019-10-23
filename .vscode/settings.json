@@ -1,0 +1,8 @@
+{
+  "emmet.showSuggestionsAsSnippets": true,
+  "eslint.autoFixOnSave": true,
+  "editor.tabCompletion": "on",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#bb1e00" // change this color!
+  }
+}
