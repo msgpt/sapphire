@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import Timer from '../Timer';
+import './index.scss';
+
+const IncDecButton = (clickFunc, dataAttr) => (
+  <div className="incDec" onClick={clickFunc} data-counter={dataAttr}>
+    {dataAttr}
+  </div>
+);
 
 export default class CallPatient extends Component {
   state = {
     initialSeconds: 5,
     call: false,
+    numberOfCalls: 0,
   };
 
   increaseDecrese = ({
@@ -16,6 +24,7 @@ export default class CallPatient extends Component {
     const { initialSeconds } = this.state;
     this.setState({
       call: false,
+      numberOfCalls: 0,
       initialSeconds:
         counter === 'Up'
           ? initialSeconds + 1
@@ -25,51 +34,58 @@ export default class CallPatient extends Component {
     });
   };
 
-  handleChildUnmount = () => {
-    this.setState({ call: false });
+  handleChildUnmount = e => {
+    const { currentTarget: { dataset: { cancel = {} } = {} } = {} } = e || {};
+    this.setState({
+      call: false,
+      numberOfCalls: cancel === 'cancel' ? 0 : this.state.numberOfCalls + 1,
+    });
   };
 
   render() {
-    const { initialSeconds, call } = this.state;
-    console.log('TIMER', initialSeconds);
-
+    const { initialSeconds, call, numberOfCalls } = this.state;
+    const { name } = this.props;
+    console.log('numberOfCalls', numberOfCalls);
+    const increaseButtons = ['Up', 'Down'];
     return (
       <div>
-        <h1>Call Patient</h1>
-        <div style={{ display: 'flex' }}>
-          <div style={{ flex: 1 }}>
-            <div
+        <h1>{`Call Patient ${name}`}</h1>
+        <div className="patientItem--outer">
+          <div className="timerSetup">
+            <h3>Define timer for call in seconds</h3>
+
+            <div>
+              <h2>{initialSeconds}</h2>
+              <div className="incDecSetup--buttons">
+                {increaseButtons.map(text =>
+                  IncDecButton(this.increaseDecrese, text)
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="callPatient">
+            <h2
+              onClick={() =>
+                this.setState({
+                  call: true,
+                })
+              }
               style={{
-                widht: '100px',
-                height: '100px',
-                backgroundColor: 'red',
+                display: 'inline',
+                color: `${call ? 'gray' : 'black'}`,
               }}
             >
-              {initialSeconds}
-            </div>
-            {/* <Timer initialSeconds={seconds}></Timer> */}
-          </div>
-          <div style={{ flex: 1 }}>
-            <div onClick={this.increaseDecrese} data-counter="Up">
-              Up
-            </div>
-            <div onClick={this.increaseDecrese} data-counter="Down">
-              Down
-            </div>
-            <div>
-              <h1
-                onClick={() => this.setState({ call: true })}
-                style={{ display: 'inline' }}
-              >
-                Call Patient ?
-              </h1>
-              {call && (
-                <Timer
-                  unmountMe={this.handleChildUnmount}
-                  initialSeconds={initialSeconds}
-                ></Timer>
-              )}
-            </div>
+              {numberOfCalls === 0
+                ? `${call ? 'Calling in ...' : 'Call Patient '}`
+                : `${call ? 'Calling in ...' : 'Recall '}`}
+            </h2>
+            {call && (
+              <Timer
+                unmountMe={this.handleChildUnmount}
+                initialSeconds={initialSeconds}
+              ></Timer>
+            )}
           </div>
         </div>
       </div>

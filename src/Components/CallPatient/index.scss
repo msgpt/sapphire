@@ -1,5 +1,49 @@
-.counter{
-    :hover{
+$hover-color: #00a3ac;
+$patientItem-color: #f5fbff;
+$border-color: #2e7dab;
+.patientItem--outer {
+  display: flex;
+  padding: 0 20px 0 20px;
+  background-color: $patientItem-color;
+  border: 1px solid $border-color;
+  margin-bottom: 70px;
+  .timerSetup {
+    flex: 1;
+    display: flex;
+    height: 100px;
+  }
+
+  .incDecSetup--buttons {
+    display: flex;
+  }
+  .callPatient {
+    flex: 2;
+    display: flex;
+    align-items: center;
+
+    h2 {
+      border-radius: 5px;
+      border: 1px solid $border-color;
+      padding: 8px;
+      &:hover {
+        background-color: $hover-color;
+        color: white;
         cursor: pointer;
+      }
     }
+  }
+}
+
+.incDec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  &:hover {
+    background-color: $hover-color;
+    cursor: pointer;
+  }
 }

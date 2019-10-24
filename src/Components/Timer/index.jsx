@@ -10,6 +10,7 @@ export default class Timer extends Component {
     this.setState({
       seconds: this.props.initialSeconds,
     });
+
     this.defineSeconds();
   }
 
@@ -27,7 +28,7 @@ export default class Timer extends Component {
 
   defineSeconds = () => {
     this.myInterval = setInterval(() => {
-      if (this.state.seconds === 0) {
+      if (this.state.seconds === 1) {
         this.props.unmountMe();
         clearInterval(this.myInterval);
       } else {
@@ -42,9 +43,27 @@ export default class Timer extends Component {
     const { seconds } = this.state;
     console.log('seconds', seconds);
     return (
-      <div>
-        <h1 style={{ display: 'inline' }}>{seconds}</h1>
-        <button onClick={() => this.props.unmountMe()}>Cancel</button>
+      <div style={{ display: 'flex' }}>
+        <h2 style={{ marginRight: '20px', minWidth: '40px' }}>{seconds}</h2>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            border: '1px solid',
+            borderRadius: '20px',
+            width: '100px',
+          }}
+          onClick={e => this.props.unmountMe(e)}
+          data-cancel="cancel"
+        >
+          <span
+            style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}
+          >
+            <i className="icon-remove "></i> Cancel
+          </span>
+        </div>
+        {/* <button  onClick={e => this.props.unmountMe(e)}>Cancel</button> */}
       </div>
     );
   }
