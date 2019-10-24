@@ -3,7 +3,8 @@ import Timer from '../Timer';
 
 export default class CallPatient extends Component {
   state = {
-    seconds: 10,
+    initialSeconds: 5,
+    call: false,
   };
 
   increaseDecrese = ({
@@ -12,43 +13,25 @@ export default class CallPatient extends Component {
     },
   }) => {
     console.log(counter);
-    const { seconds } = this.state;
+    const { initialSeconds } = this.state;
     this.setState({
-      seconds:
-        counter === 'Up' ? seconds + 1 : seconds > 0 ? seconds - 1 : seconds,
+      call: false,
+      initialSeconds:
+        counter === 'Up'
+          ? initialSeconds + 1
+          : initialSeconds > 0
+          ? initialSeconds - 1
+          : initialSeconds,
     });
   };
 
-  defineSeconds = () => {
-    const myInterval = setInterval(() => {
-      if (this.state.seconds <= 0) {
-        clearInterval(myInterval);
-      } else {
-        this.setState({ seconds: this.state.seconds - 1 });
-      }
-    }, 1000);
+  handleChildUnmount = () => {
+    this.setState({ call: false });
   };
 
-  //   updateTimer = ({ seconds }) => {
-  //     this.setState({ seconds }, this.defineSeconds);
-  //   };
-
-  //   defineSeconds = () => {
-  //     setInterval(() => {
-  //       this.setState(({ seconds }) => {
-  //         if (seconds !== 0) {
-  //           return {
-  //             seconds: seconds - 1,
-  //           };
-  //         }
-  //         clearInterval(this.updateTimer);
-  //       });
-  //     }, 1000);
-  //   };
-
   render() {
-    const { seconds } = this.state;
-    console.log('TIMER', seconds);
+    const { initialSeconds, call } = this.state;
+    console.log('TIMER', initialSeconds);
 
     return (
       <div>
@@ -62,7 +45,7 @@ export default class CallPatient extends Component {
                 backgroundColor: 'red',
               }}
             >
-              {seconds}
+              {initialSeconds}
             </div>
             {/* <Timer initialSeconds={seconds}></Timer> */}
           </div>
@@ -73,9 +56,20 @@ export default class CallPatient extends Component {
             <div onClick={this.increaseDecrese} data-counter="Down">
               Down
             </div>
-            <button onClick={() => this.defineSeconds(this.state)}>
-              Call Doente
-            </button>
+            <div>
+              <h1
+                onClick={() => this.setState({ call: true })}
+                style={{ display: 'inline' }}
+              >
+                Call Patient ?
+              </h1>
+              {call && (
+                <Timer
+                  unmountMe={this.handleChildUnmount}
+                  initialSeconds={initialSeconds}
+                ></Timer>
+              )}
+            </div>
           </div>
         </div>
       </div>
