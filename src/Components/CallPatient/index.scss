@@ -1,9 +1,13 @@
 $hover-color: #00a3ac;
 $patientItem-color: #f5fbff;
 $border-color: #2e7dab;
+
+.patientList {
+  padding-left: 20px;
+}
 .patientItem--outer {
   display: flex;
-  padding: 0 20px 0 20px;
+  padding: 20px 20px 20px 20px;
   background-color: $patientItem-color;
   border: 1px solid $border-color;
   margin-bottom: 70px;
@@ -11,6 +15,9 @@ $border-color: #2e7dab;
     flex: 1;
     display: flex;
     height: 100px;
+    > div {
+      margin: 0 20px 0 20px;
+    }
   }
 
   .incDecSetup--buttons {
@@ -21,7 +28,7 @@ $border-color: #2e7dab;
     display: flex;
     align-items: center;
 
-    h2 {
+    > h2 {
       border-radius: 5px;
       border: 1px solid $border-color;
       padding: 8px;
@@ -30,6 +37,18 @@ $border-color: #2e7dab;
         color: white;
         cursor: pointer;
       }
+    }
+    .h2gray {
+      color: gray;
+      border: none;
+      &:hover {
+        color: gray;
+        background-color: $patientItem-color;
+        pointer-events: none;
+      }
+    }
+    .h2black {
+      color: black;
     }
   }
 }

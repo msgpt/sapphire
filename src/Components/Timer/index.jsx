@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './index.scss';
 
 export default class Timer extends Component {
   state = {
@@ -7,17 +8,19 @@ export default class Timer extends Component {
   };
 
   componentDidMount() {
+    const { initialSeconds } = this.props;
     this.setState({
-      seconds: this.props.initialSeconds,
+      seconds: initialSeconds,
     });
 
     this.defineSeconds();
   }
 
   componentDidUpdate(prevProps) {
+    const { initialSeconds } = this.props;
     if (prevProps !== this.props) {
       this.setState({
-        seconds: this.props.initialSeconds,
+        seconds: initialSeconds,
       });
     }
   }
@@ -27,10 +30,11 @@ export default class Timer extends Component {
   }
 
   defineSeconds = () => {
+    const { unmountMe } = this.props;
     this.myInterval = setInterval(() => {
       if (this.state.seconds === 1) {
-        this.props.unmountMe();
         clearInterval(this.myInterval);
+        unmountMe();
       } else {
         this.setState(state => ({
           seconds: state.seconds - 1,
@@ -43,27 +47,17 @@ export default class Timer extends Component {
     const { seconds } = this.state;
     console.log('seconds', seconds);
     return (
-      <div style={{ display: 'flex' }}>
-        <h2 style={{ marginRight: '20px', minWidth: '40px' }}>{seconds}</h2>
+      <div className="timer--outer">
+        <h2>{seconds}</h2>
         <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            border: '1px solid',
-            borderRadius: '20px',
-            width: '100px',
-          }}
+          className="timer--inner"
           onClick={e => this.props.unmountMe(e)}
           data-cancel="cancel"
         >
-          <span
-            style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}
-          >
+          <span>
             <i className="icon-remove "></i> Cancel
           </span>
         </div>
-        {/* <button  onClick={e => this.props.unmountMe(e)}>Cancel</button> */}
       </div>
     );
   }
@@ -71,4 +65,5 @@ export default class Timer extends Component {
 
 Timer.propTypes = {
   initialSeconds: PropTypes.number,
+  unmountMe: PropTypes.func,
 };
