@@ -45,7 +45,6 @@ export default class Timer extends Component {
 
   render() {
     const { seconds } = this.state;
-    console.log('seconds', seconds);
     return (
       <div className="timer--outer">
         <h2>{seconds}</h2>

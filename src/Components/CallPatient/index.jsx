@@ -29,7 +29,6 @@ export default class CallPatient extends Component {
       dataset: { counter },
     },
   }) => {
-    console.log(counter);
     const { initialSeconds } = this.state;
     this.setState({
       call: false,
@@ -56,7 +55,6 @@ export default class CallPatient extends Component {
   render() {
     const { initialSeconds, call, numberOfCalls } = this.state;
     const { name } = this.props;
-    console.log('numberOfCalls', numberOfCalls);
     const increaseButtons = ['Up', 'Down'];
     return (
       <div className="patientList">
