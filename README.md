@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was a interview challenge made by Outsystems.
 
 ## Available Scripts
 
