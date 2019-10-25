@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a771001a706c80dddf9f1a312c54e19c",
+    "revision": "4cc37f666b8875ff0c1d587a050719cc",
     "url": "/sapphire/index.html"
   },
   {
