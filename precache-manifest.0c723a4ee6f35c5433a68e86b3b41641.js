@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4cc37f666b8875ff0c1d587a050719cc",
+    "revision": "2c5bf5aedbe35943d55a1635c71f5906",
     "url": "/sapphire/index.html"
   },
   {
-    "revision": "2d6b5e761f32a6861a50",
+    "revision": "ec2c8dd58a04d3275d4f",
     "url": "/sapphire/static/css/main.6fb54acb.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sapphire/static/js/2.6d4d1698.chunk.js"
   },
   {
-    "revision": "2d6b5e761f32a6861a50",
-    "url": "/sapphire/static/js/main.bae84550.chunk.js"
+    "revision": "ec2c8dd58a04d3275d4f",
+    "url": "/sapphire/static/js/main.e9f9571b.chunk.js"
   },
   {
     "revision": "844e916919d0717155ae",
