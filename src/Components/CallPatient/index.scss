@@ -11,10 +11,10 @@ $border-color: #2e7dab;
   background-color: $patientItem-color;
   border: 1px solid $border-color;
   margin-bottom: 70px;
+  flex-wrap: wrap;
   .timerSetup {
     flex: 1;
     display: flex;
-    height: 100px;
     > div {
       margin: 0 20px 0 20px;
     }
