@@ -26,7 +26,7 @@ export default class Timer extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.defineSeconds);
+    clearInterval(this.myInterval);
   }
 
   defineSeconds = () => {
