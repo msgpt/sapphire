@@ -3,7 +3,9 @@ $patientItem-color: #f5fbff;
 $border-color: #2e7dab;
 
 .patientList {
-  padding-left: 20px;
+  @media only screen and (min-width: 768px) {
+    padding-left: 20px;
+  }
 }
 .patientItem--outer {
   display: flex;
