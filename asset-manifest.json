@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sapphire/static/css/main.66292bab.chunk.css",
+    "main.css": "/sapphire/static/css/main.11acb52b.chunk.css",
     "main.js": "/sapphire/static/js/main.f9db6567.chunk.js",
     "main.js.map": "/sapphire/static/js/main.f9db6567.chunk.js.map",
     "runtime-main.js": "/sapphire/static/js/runtime-main.1f6275a5.js",
@@ -8,14 +8,14 @@
     "static/js/2.6d4d1698.chunk.js": "/sapphire/static/js/2.6d4d1698.chunk.js",
     "static/js/2.6d4d1698.chunk.js.map": "/sapphire/static/js/2.6d4d1698.chunk.js.map",
     "index.html": "/sapphire/index.html",
-    "precache-manifest.4fe2247d29a24476c0ec24483c608b71.js": "/sapphire/precache-manifest.4fe2247d29a24476c0ec24483c608b71.js",
+    "precache-manifest.e5986ebbe9dd4a233a0ce8be9f1daaec.js": "/sapphire/precache-manifest.e5986ebbe9dd4a233a0ce8be9f1daaec.js",
     "service-worker.js": "/sapphire/service-worker.js",
-    "static/css/main.66292bab.chunk.css.map": "/sapphire/static/css/main.66292bab.chunk.css.map"
+    "static/css/main.11acb52b.chunk.css.map": "/sapphire/static/css/main.11acb52b.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.1f6275a5.js",
     "static/js/2.6d4d1698.chunk.js",
-    "static/css/main.66292bab.chunk.css",
+    "static/css/main.11acb52b.chunk.css",
     "static/js/main.f9db6567.chunk.js"
   ]
 }

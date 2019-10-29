@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c9dadcc69f4d18aae5b48b2498b702cb",
+    "revision": "3d96d259a61d10955d360e38d43b068a",
     "url": "/sapphire/index.html"
   },
   {
-    "revision": "bf2be1175a3cbfed67e3",
-    "url": "/sapphire/static/css/main.66292bab.chunk.css"
+    "revision": "8bd4e3c18f77f4b7d759",
+    "url": "/sapphire/static/css/main.11acb52b.chunk.css"
   },
   {
     "revision": "2d94d667af81c7b2c2d8",
     "url": "/sapphire/static/js/2.6d4d1698.chunk.js"
   },
   {
-    "revision": "bf2be1175a3cbfed67e3",
+    "revision": "8bd4e3c18f77f4b7d759",
     "url": "/sapphire/static/js/main.f9db6567.chunk.js"
   },
   {
